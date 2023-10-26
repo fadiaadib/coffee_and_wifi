@@ -1,0 +1,9 @@
+.form-control {
+    border: 1px solid #d2d6da !important;
+    padding: .625rem .75rem;
+    line-height: 1.3!important;
+}
+
+.author img {
+    border-radius:50%;
+}
