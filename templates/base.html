@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% set website_name = 'Brew & Business' %}
 {% include "head.html" %}
 
 <body class="presentation-page bg-gray-200">
@@ -9,7 +10,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-7 text-center mx-auto ">
-        <h1 class="text-white mb-n2 py-3 shadow-blur border-radius-lg" style="font-family:Satisfy; font-size:36px">{% block title %}{% endblock %}</h1>
+        <hr class="horizontal light d-lg-block d-none">
+        <h1 class="text-white mb-n2 py-3" style="font-family:Satisfy; font-size:48px">{% block title %}{% endblock %}</h1>
+        <hr class="horizontal light d-lg-block d-none">
       </div>
     </div>
   </div>

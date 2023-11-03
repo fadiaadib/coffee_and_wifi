@@ -7,3 +7,9 @@
 .author img {
     border-radius:50%;
 }
+
+/* Flash Message Styling */
+.flash {
+  color: #ee6f57;
+  text-align: center;
+}

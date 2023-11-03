@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block banner %}{{ url_for('static', filename='assets/img/about_banner.jpg') }}{% endblock %}
+{% block title %}About us{% endblock %}
+{% block content %}
+<section class="py-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 mx-auto mb-3">
+        <h3>{{ website_name }}</h3>
+        <hr class="horizontal dark d-lg-block d-none">
+        <p>
+          Welcome to '{{ website_name }},' Your Passport to Portland's Premier Coffee and Co-Working Scene! ☕🚀<br><br>
+
+          '{{ website_name }}' is your key to unlocking a world where great coffee meets incredible productivity in the
+          heart of Portland, Oregon. We're not just another directory; we're your trusted guide on a mission to redefine
+          the way you work and caffeinate.<br><br>
+
+          Imagine this: You're surrounded by the enticing aroma of freshly brewed coffee, nestled in a cafe with the
+          perfect blend of ambiance and efficiency. Your laptop comes to life amidst the hum of creativity, blending
+          seamlessly with the cozy atmosphere. This is 'Brew and Business'—where every sip fuels your inspiration, and
+          every nook becomes a workspace masterpiece.<br><br>
+
+          Our expansive database is a treasure trove of Portland's finest cafes, each handpicked to cater to your unique
+          tastes. Whether you're a connoisseur of artisanal espressos, a fan of single-origin pour-overs, or a latte
+          lover, we've got the perfect spot just for you. Explore cafes that span the spectrum, from sleek modern spaces
+          to charming hideaways.<br><br>
+
+          But '{{ website_name }}' isn't just a directory; it's a thriving community of kindred spirits. Connect with
+          fellow coffee enthusiasts, entrepreneurs, and remote workers who share your passion for exceptional coffee and
+          seamless remote work. Swap tips, share reviews, and weave a network of coffee aficionados and business
+          wizards.<br><br>
+
+          Is there a beloved cafe you adore that's missing from our list? Help us expand our coffee empire by submitting
+          your cherished haunt and sharing your wisdom. Your contribution doesn't just enrich our community—it helps
+          others discover their ideal coffee oasis.<br><br>
+
+          Come with us on a journey through the bustling streets of Portland as we unveil its hidden gems and celebrate
+          its vibrant coffee culture. '{{ website_name }}' isn't just a website—it's an expedition, a community, and a
+          commitment to elevating your coffee and work experience.<br><br>
+
+          So, what are you waiting for? Immerse yourself in a world of exceptional brews, inspiring corners, and
+          boundless possibilities. Let's raise our cups to the perfect blend of coffee and business success at '{{
+          website_name }}.' ☕📈<br>
+        </p>
+        <hr class="horizontal dark d-lg-block d-none">
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

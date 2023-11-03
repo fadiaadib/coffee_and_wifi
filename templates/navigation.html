@@ -7,7 +7,7 @@
              rel="tooltip"
              title="Discover Portland's Finest Cafes: A Coffee Lover's Guide" data-placement="bottom">
             <img height="30" src="{{ url_for( 'static', filename='assets/img/cafe.png') }}"/>
-            <span class="mx-2" style="font-family:Satisfy; font-size:18px">Brews & Business</span>
+            <span class="mx-2" style="font-family:Satisfy; font-size:18px">{{ website_name }}</span>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                   aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,14 +15,22 @@
           </button>
           <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
             <ul class="navbar-nav navbar-nav-hover ms-auto">
-              <li class="nav-item px-3"><a class="nav-link">About</a></li>
-              <li class="nav-item px-3"><a class="nav-link">Blog</a></li>
-              <li class="nav-item px-3"><a class="nav-link">Login</a></li>
+              {% if current_user.is_authenticated %}
+              <li class="nav-item px-3"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+              {% else %}
+              <li class="nav-item px-3"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+              {% endif %}
             </ul>
             <ul class="navbar-nav d-lg-block d-none">
-              <a class="btn bg-gradient-primary mb-0" href="{{ url_for('add_cafe') }}">Add Cafe</a>
+              <li><a class="btn bg-gradient-primary mb-0" href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
             </ul>
           </div>
+          {% if current_user.is_authenticated %}
+          <div class="author mx-2">
+            <img src="{{ current_user.email | gravatar(size=200, rating='x') }}"
+                 alt="..." class="avatar shadow border-radius-lg">
+          </div>
+          {% endif %}
         </div>
       </nav>
     </div>

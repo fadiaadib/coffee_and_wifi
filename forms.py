@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import SubmitField, StringField, BooleanField, IntegerField
+from wtforms import SubmitField, StringField, BooleanField, IntegerField, PasswordField
 from wtforms.validators import DataRequired
 
 
@@ -15,3 +15,16 @@ class AddCafeForm(FlaskForm):
     seats = IntegerField(label='# of seats', validators=[DataRequired()])
     coffee_price = StringField(label='Coffee price', validators=[DataRequired()])
     submit = SubmitField(label='Add')
+
+
+class RegisterForm(FlaskForm):
+    name = StringField(label='Name', validators=[DataRequired()])
+    email = StringField(label='Email', validators=[DataRequired()])
+    password = PasswordField(label='Password', validators=[DataRequired()])
+    submit = SubmitField(label='Register')
+
+
+class LoginForm(FlaskForm):
+    email = StringField(label='Email', validators=[DataRequired()])
+    password = PasswordField(label='Password', validators=[DataRequired()])
+    submit = SubmitField(label='Log in')

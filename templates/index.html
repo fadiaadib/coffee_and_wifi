@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block banner %}{{ url_for('static', filename='assets/img/home_banner.jpg') }}{% endblock %}
-{% block title %}~ ● Brews & Business ● ~{% endblock %}
+{% block title %}~ {{ website_name }} ~{% endblock %}
 {% block content %}
 <section class="py-2">
   <div class="container">
@@ -9,11 +9,11 @@
         <span class="badge badge-info mb-2 mt-n5">
           <img height="50" src="{{ url_for('static', filename='assets/img/cafe.png') }}">
         </span>
-        <h2>Discover Portland's Finest Cafes<br>A Coffee Lover's Guide</h2>
+        <h3>Discover Portland's Finest Cafes<br>A Coffee Lover's Guide</h3>
+        <hr class="horizontal dark d-lg-block d-none">
         <p>
           Explore our curated selection of Portland's top coffe shops, where you can not only relish a delicious cup of
-          coffee
-          but also create your ideal workspace, combining the perfect brew with an inspiring atmosphere for maximum
+          coffee but also create your ideal workspace, combining the perfect brew with an inspiring atmosphere for maximum
           productivity.
         </p>
       </div>
@@ -21,7 +21,6 @@
     <div class="row mb-4" data-masonry='{"percentPosition": true }' style="position: relative;">
       {% for cafe in cafes: %}
       <div class="col-md-4 position-absolute mb-sm-0 mb-3">
-        <!--        <hr class="vertical dark d-lg-block d-none">-->
         <div class="card card-plain mx-1 mt-3">
           <div class="card-header p-0 position-relative z-index-1 ">
             <a href="" class="d-block">
@@ -33,12 +32,12 @@
               <a href="" class="text-darker font-weight-bolder">{{ cafe.name }}</a>
             </h5>
             <div class="author">
-              <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/freedom.jpg"
+              <img src="{{ cafe.author.email | gravatar(size=200, rating='x') }}"
                    alt="..." class="avatar shadow border-radius-lg">
               <div class="name ps-3 my-auto">
-                <p class="text-sm text-darker font-weight-bold mb-0">L&#39;orea Sirman</p>
+                <p class="text-sm text-darker font-weight-bold mb-0">{{ cafe.author.name }}</p>
                 <div class="stats">
-                  <p class="text-xs text-secondary mb-0">Redactor</p>
+                  <p class="text-xs text-secondary mb-0">{{ cafe.author.type }}</p>
                 </div>
               </div>
             </div>
