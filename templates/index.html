@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 {% block banner %}{{ url_for('static', filename='assets/img/home_banner.jpg') }}{% endblock %}
-{% block title %}~ {{ website_name }} ~{% endblock %}
+{% block title %}{{ website_name }}{% endblock %}
 {% block content %}
-<section class="py-2">
+<section class="py-0">
   <div class="container">
     <div class="row">
       <div class="col-8 mx-auto text-center mb-3">
         <span class="badge badge-info mb-2 mt-n5">
           <img height="50" src="{{ url_for('static', filename='assets/img/cafe.png') }}">
         </span>
-        <h3>Discover Portland's Finest Cafes<br>A Coffee Lover's Guide</h3>
+        <h4>Discover Portland's Finest Cafes<br>A Coffee Lover's Guide</h4>
         <hr class="horizontal dark d-lg-block d-none">
         <p>
           Explore our curated selection of Portland's top coffe shops, where you can not only relish a delicious cup of
-          coffee but also create your ideal workspace, combining the perfect brew with an inspiring atmosphere for maximum
+          coffee but also create your ideal workspace, combining the perfect brew with an inspiring atmosphere for
+          maximum
           productivity.
         </p>
       </div>
@@ -28,14 +29,35 @@
             </a>
           </div>
           <div class="card-plain">
-            <h5 class="my-2">
+            <p class="mt-2">
               <a href="" class="text-darker font-weight-bolder">{{ cafe.name }}</a>
-            </h5>
+            </p>
+            <div class="mb-2 mt-n3 mx-1" style="font-size: 14px;">
+              <a href="{{ cafe.map_url }}" target="_blank"><i class="fa fa-map-marker"></i><span class="px-2">{{ cafe.location }}</span></a>
+            </div>
+            <ul class="list-group list-group-horizontal pb-1">
+              {% if cafe.has_sockets %}
+              <li class="list-group-item"><i class="fa fa-plug"></i></li>
+              {% endif %}
+              {% if cafe.has_toilet %}
+              <li class="list-group-item"><i class="fa fa-toilet"></i></li>
+              {% endif %}
+              {% if cafe.has_wifi %}
+              <li class="list-group-item"><i class="fa fa-wifi"></i></li>
+              {% endif %}
+              {% if cafe.can_take_calls %}
+              <li class="list-group-item"><i class="fa fa-phone"></i></li>
+              {% endif %}
+            </ul>
+            <ul class="list-group list-group-horizontal pb-3">
+              <li class="list-group-item"><i class="fa fa-chair mx-1"></i><span class="mx-1">{{ cafe.seats }}</span><li>
+              <li class="list-group-item"><i class="fa fa-coffee mx-1"></i><span class="mx-1">${{ cafe.coffee_price }}</span></li>
+            </ul>
             <div class="author">
               <img src="{{ cafe.author.email | gravatar(size=200, rating='x') }}"
                    alt="..." class="avatar shadow border-radius-lg">
               <div class="name ps-3 my-auto">
-                <p class="text-sm text-darker font-weight-bold mb-0">{{ cafe.author.name }}</p>
+                <p class="text-sm text-darker font-weight-bold mb-0"><span class="title-text">By </span>{{ cafe.author.name }}</p>
                 <div class="stats">
                   <p class="text-xs text-secondary mb-0">{{ cafe.author.type }}</p>
                 </div>

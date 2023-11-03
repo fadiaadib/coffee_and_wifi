@@ -150,13 +150,14 @@ def register():
             return redirect(url_for('login'))
 
         # Create user object
+        password = generate_password_hash(password=register_form.password.data,
+                                            method='pbkdf2:sha256',
+                                            salt_length=8)
         user = User(
             type='contributor',
             name=register_form.name.data,
             email=register_form.email.data,
-            password=generate_password_hash(password=register_form.password.data,
-                                            method='pbkdf2:sha256',
-                                            salt_length=8),
+            password=password,
         )
         db.session.add(user)
         db.session.commit()

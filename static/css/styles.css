@@ -5,11 +5,32 @@
 }
 
 .author img {
-    border-radius:50%;
+    border-radius: 50%;
+    border: 2px solid #DE2769
 }
 
 /* Flash Message Styling */
 .flash {
   color: #ee6f57;
   text-align: center;
+}
+
+.title-text {
+  font-family: 'Great Vibes', cursive;
+}
+
+.nav-logo-text {
+  font-size: 24px;
+}
+
+.footer-logo-text {
+  font-size: 36px;
+}
+
+.list-group-item {
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Open Sans', cursive;
 }
